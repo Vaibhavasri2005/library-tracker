@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard - Library Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-book-open"></i>
+                <span>Library Tracker</span>
+            </div>
+            <div class="nav-user">
+                <span class="welcome-text">Welcome, <strong id="currentUsername"></strong></span>
+                <button id="logoutBtn" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-books"></i> Library Dashboard</h1>
+            <button id="addBookBtn" class="btn btn-primary">
+                <i class="fas fa-plus"></i>
+                Add New Book
+            </button>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon available">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="totalBooks">0</h3>
+                    <p>Total Books</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon success">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="availableBooks">0</h3>
+                    <p>Available</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon borrowed">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="borrowedBooks">0</h3>
+                    <p>Borrowed</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Status</th>
+                        <th>Borrower Name</th>
+                        <th>User ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="booksTableBody">
+                    <!-- Books will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add Book Modal -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Add New Book</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <label for="bookTitle">
+                        <i class="fas fa-book"></i>
+                        Book Title
+                    </label>
+                    <input type="text" id="bookTitle" placeholder="Enter book title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookAuthor">
+                        <i class="fas fa-pen"></i>
+                        Author
+                    </label>
+                    <input type="text" id="bookAuthor" placeholder="Enter author name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookISBN">
+                        <i class="fas fa-barcode"></i>
+                        ISBN (Optional)
+                    </label>
+                    <input type="text" id="bookISBN" placeholder="Enter ISBN number">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAddBook">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Add Book
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="messageBox" class="message-box"></div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
