@@ -7,10 +7,11 @@
     "node": ">=18.x"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && echo Build complete - listing dist contents && dir dist /b",
     "start": "node dist/server.js",
     "dev": "ts-node src/server.ts",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "postbuild": "echo Build output location: && cd && echo dist folder exists: && if exist dist (echo YES) else (echo NO)"
   },
   "keywords": ["library", "tracker", "express", "typescript"],
   "author": "",
