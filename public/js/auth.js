@@ -1,5 +1,7 @@
-// API Base URL
-const API_URL = 'http://localhost:3000/api';
+// API Base URL - dynamically detect based on current location
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3000/api'
+    : `${window.location.origin}/api`;
 
 // DOM Elements
 const loginForm = document.getElementById('loginForm');
