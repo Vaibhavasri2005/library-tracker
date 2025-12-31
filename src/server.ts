@@ -7,7 +7,7 @@ import { authRouter } from './routes/auth';
 import { booksRouter } from './routes/books';
 
 const app: Express = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 // Middleware
 app.use(cors());
@@ -30,7 +30,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Library Tracker Server running on http://localhost:${PORT}`);
-  console.log(`📚 Access the application at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Library Tracker Server running on port ${PORT}`);
+  console.log(`📚 Application is ready`);
 });
